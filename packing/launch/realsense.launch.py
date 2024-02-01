@@ -1,20 +1,15 @@
 from launch import LaunchDescription
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
-from launch.actions import IncludeLaunchDescription, GroupAction, DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription
 from launch.substitutions import (
     PathJoinSubstitution,
-    LaunchConfiguration,
-    EqualsSubstitution,
 )
-from launch.conditions import IfCondition
-
 
 """
 Description:
     This launch file launches the d435i
 """
-
 
 def generate_launch_description():
     return LaunchDescription(
@@ -33,6 +28,13 @@ def generate_launch_description():
                     "temporal_filter.enable": "true",
                     "decimation_filter.enable": "true",
                     "depth_module.enable_auto_exposure": "true",
+                    "json_file_path": PathJoinSubstitution(
+                    [
+                        FindPackageShare("botrista"),
+                        "config",
+                        "d435i_config.json",
+                    ]
+                ),
                 }.items(),
             ),
             IncludeLaunchDescription(
@@ -40,6 +42,12 @@ def generate_launch_description():
                     [FindPackageShare("image_proc"), "launch", "image_proc.launch.py"]
                 )
             ),
+            IncludeLaunchDescription(
+                PathJoinSubstitution([
+                    FindPackageShare("packing"),
+                    # "launch",
+                    "open_franka.launch.xml"
+                ])),
             Node(package="packing",
                  executable="detect_object"),
         ]

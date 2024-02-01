@@ -10,7 +10,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml',
-                                    'launch/realsense.launch.py']),
+                                    'launch/realsense.launch.py',
+                                    'launch/open_franka.launch.xml',
+                                    'config/d435i_config.json',
+                                    'config/packing.rviz']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -20,8 +23,10 @@ setup(
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['cup_detection = packing.test:cup_detection_entry',
-                            'detect_object = packing.detect_object:main'
+        'console_scripts': ['detect_object = packing.detect_object:main',
+                            # 'camera_localizer = packing.camera_localizer:main',
+                            # 'pick_place = packing.pick_place:main',
+                            
         ],
     },
 )

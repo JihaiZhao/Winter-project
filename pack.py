@@ -12,6 +12,7 @@ class Node():
         self.pivot = pivot
         self.x, self.y, self.z = pivot
         self.w, self.l, self.h = size
+        self.position = []
 
 class Rect():
     def __init__(self, size:tuple) -> None:
@@ -39,8 +40,10 @@ class Packer():
         node.left = Node(pivot=(node.x, node.y + l, node.z), size=(node.w, node.l - l, node.h))
         node.right = Node(pivot=(node.x + w, node.y, node.z), size=(node.w - w, l, node.h))
         node.height = Node(pivot=(node.x, node.y, node.z + h), size=(node.w, node.l, node.h-h))
-        
+        node.position = [node.x + w/2, node.y + l/2, node.z + h/2]
+
         return node
+    
     def rotate(self, node:Node, w:int, l:int, h:int) -> Node:
         return self.find_node(node, w, l, h)
         
@@ -53,6 +56,7 @@ class SimplePacker(Packer):
             if rect.h <= self.root.h:
                 if node:
                     rect.fit = self.split_node(node, rect.w, rect.l, rect.h)
+                    # position = self.get_position(node)
                 elif node == None:
                     node = self.rotate(self.root, rect.l, rect.w, rect.h)
                     if node:
@@ -153,13 +157,19 @@ def main():
     sizes = (20,20,30)
     ax = fig.add_subplot(111, projection='3d')
     set_environment(ax,sizes)
+    # cat1_p3 = input("inter")
+    # if cat1_p3:
     dims = cat1_p3
     rects = [Rect(d) for d in dims]
 
     p = SimplePacker(*sizes)
     rects = p.fit(rects) 
-    # ,auto_bounds=True
     plot(ax,rects)
+    for r in rects:
+        if r.fit != None:
+            print(r.fit.position)
+    # ,auto_bounds=True
+        # cat1_p3 = input("inter")
 
 if __name__=='__main__':
     main()
