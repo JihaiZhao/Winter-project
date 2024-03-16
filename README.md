@@ -4,6 +4,7 @@ This project uses the Franka Emika Panda arm to solve a 3D bin packing problem w
 
 [Video](https://www.youtube.com/embed/CVzJDIRWqrI)
 
+
 ## OBJECT DETECTION
 Detecting the dimension of the object and finding the precise location of the project are the keys in this project. A realsense D435 is mounted on the robot. The object was detected and tracked using the RGB camera data and depth data provided by the Intel RealSense camera. All potential objects are a red color, and their location is determined using color masking in OpenCV to isolate the red pixels in the camera’s view. A contour was drawn around the red area, and the centroid of the contour and four more points on the edges were found. Then the grasp position and orientation of the object were found.
 The object will be placed on the “bin” and the robot will move to the observe position first. Once the camera detects an object appears, the robot will move to the top of the object to make sure the object is at the center of the camera to better detect the dimension of the object.
