@@ -2,7 +2,7 @@
 This project uses the Franka Emika Panda arm to solve a 3D bin packing problem which is an optimization challenge that involves efficiently packing a set of items of different sizes into a container, while minimizing wasted space and maximizing space utilization. It uses computer vision to detect the dimension and location of the object needed to be packed, and it uses Moveit2 to plan the trajectories.
 ## VIDEO DEMO
 
-[Video](https://www.youtube.com/embed/CVzJDIRWqrI)
+[![LINK TO YOUTUBE](https://github.com/JihaiZhao/Winter-project/assets/99274626/2d193ea2-c026-433d-9bb7-c31ca8c237e5)](https://www.youtube.com/watch?v=CVzJDIRWqrI&t=1s)
 
 
 ## OBJECT DETECTION
