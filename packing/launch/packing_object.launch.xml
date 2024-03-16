@@ -1,0 +1,7 @@
+<launch>
+    <!-- <include file="$(find-pkg-share packing)/open_franka.launch.xml"/> -->
+    <include file="$(find-pkg-share packing)/realsense.launch.py"/>
+    <node pkg="packing" exec="pick_place" name="pick_place"/>
+    <node pkg="packing" exec="run" name="run"/>
+    <node pkg="packing" exec="delay_node" name="delay_node"/>
+</launch>

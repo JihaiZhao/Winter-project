@@ -27,6 +27,7 @@ def generate_launch_description():
                     "spatial_filter.enable": "true",
                     "temporal_filter.enable": "true",
                     "decimation_filter.enable": "true",
+                    "serial_no": "_938422076779",
                     "depth_module.enable_auto_exposure": "true",
                     "json_file_path": PathJoinSubstitution(
                     [
@@ -45,9 +46,12 @@ def generate_launch_description():
             IncludeLaunchDescription(
                 PathJoinSubstitution([
                     FindPackageShare("packing"),
-                    # "launch",
                     "open_franka.launch.xml"
                 ])),
+
+            Node(package="packing",
+                 executable="camera_localizer"),     
+
             Node(package="packing",
                  executable="detect_object"),
         ]

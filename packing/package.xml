@@ -7,21 +7,30 @@
   <maintainer email="jihaizhao2024@u.northwestern.edu">jihai</maintainer>
   <license>Apache-2.0</license>
 
-  <exec_depend>ros2launch</exec_depend>
-  <exec_depend>geometry_msgs</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
-
-  <exec_depend>rviz2</exec_depend>
-  <exec_depend>moveitapi</exec_depend>
-  
-  <exec_depend>cv_bridge</exec_depend>
-  <exec_depend>image_geometry</exec_depend>
-
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
 
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <exec_depend>moveit_wrapper</exec_depend>
+
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>moveitapi</exec_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>ros2launch</exec_depend>
+
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>image_geometry</exec_depend>
+  
+  <exec_depend>packing_interface</exec_depend>
+  <build_depend>packing_interface</build_depend>
+
+  <!-- <exec_depend>franka_moveit_config</exec_depend> -->
+  
   <export>
     <build_type>ament_python</build_type>
   </export>

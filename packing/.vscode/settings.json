@@ -2,8 +2,6 @@
     "python.autoComplete.extraPaths": [
         "/home/jihai/ME499/build/packing",
         "/home/jihai/ME499/install/packing/lib/python3.10/site-packages",
-        "/home/jihai/ME499/build/moveit_wrapper",
-        "/home/jihai/ME499/install/moveit_wrapper/lib/python3.10/site-packages",
         "/home/jihai/ME499/install/packing_interface/lib/python3.10/site-packages",
         "/home/jihai/me495/interbotix/build/interbotix_xs_modules",
         "/home/jihai/me495/interbotix/build/interbotix_common_modules",
@@ -13,13 +11,10 @@
     "python.analysis.extraPaths": [
         "/home/jihai/ME499/build/packing",
         "/home/jihai/ME499/install/packing/lib/python3.10/site-packages",
-        "/home/jihai/ME499/build/moveit_wrapper",
-        "/home/jihai/ME499/install/moveit_wrapper/lib/python3.10/site-packages",
         "/home/jihai/ME499/install/packing_interface/lib/python3.10/site-packages",
         "/home/jihai/me495/interbotix/build/interbotix_xs_modules",
         "/home/jihai/me495/interbotix/build/interbotix_common_modules",
         "/home/jihai/me495/interbotix/install/lib/python3.10/site-packages",
-        "/opt/ros/iron/lib/python3.10/site-packages",
-        "./moveit_wrapper"
+        "/opt/ros/iron/lib/python3.10/site-packages"
     ]
 }

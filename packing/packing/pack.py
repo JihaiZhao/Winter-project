@@ -46,7 +46,7 @@ class Packer():
     
     def rotate(self, node:Node, w:int, l:int, h:int) -> Node:
         return self.find_node(node, w, l, h)
-        
+     
 class SimplePacker(Packer):
 
     def fit(self, rects:list[Rect]) -> list[Rect]:
@@ -81,6 +81,7 @@ def plot(ax,rects:list[Rect]) -> None:
     """ Plot a collection of rects """
     position = []
     size = []
+    plt.pause(5)
     for r in rects:
         if not r.fit:
             continue
@@ -89,7 +90,7 @@ def plot(ax,rects:list[Rect]) -> None:
     for k in range(len(position)):
         pc = plotCubeAt2(position[k], size[k], edgecolor="k")
         ax.add_collection3d(pc) 
-        plt.pause(0.5)
+        plt.pause(1)
     plt.show()
 
 def cuboid_data2(o, size):
@@ -157,8 +158,6 @@ def main():
     sizes = (20,20,30)
     ax = fig.add_subplot(111, projection='3d')
     set_environment(ax,sizes)
-    # cat1_p3 = input("inter")
-    # if cat1_p3:
     dims = cat1_p3
     rects = [Rect(d) for d in dims]
 

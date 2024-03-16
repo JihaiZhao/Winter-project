@@ -26,7 +26,7 @@ class CameraLocalizer(Node):
         self.buffer = Buffer()
         self.transform_listener = TransformListener(self.buffer, self)
         self.transform_broadcaster = TransformBroadcaster(self)
-        # self.static_transform_broadcaster = StaticTransformBroadcaster(self)
+        self.static_transform_broadcaster = StaticTransformBroadcaster(self)
 
         # timer to publish transforms
         self.timer = self.create_timer(0.1, self.timer_callback)
@@ -37,13 +37,31 @@ class CameraLocalizer(Node):
         self.transform_broadcaster.sendTransform(
             TransformStamped(
                 header=Header(
-                    stamp=self.get_clock().now().to_msg(), frame_id="panda_hand_tcp"
+                    stamp=self.get_clock().now().to_msg(), frame_id="panda_hand"
                 ),
                 child_frame_id="d435i_link",
                 transform=Transform(
-                    translation=Vector3(x=0.04, y=0.0, z=0.05),
+                    translation=Vector3(x=0.05, y=0.0, z=0.065),
                     rotation=Quaternion(
                         x=0.706825, y=-0.0005629, z=0.707388, w=0.0005633
+                    ),
+                ),
+            ),
+        )
+
+        self.static_transform_broadcaster.sendTransform(
+            TransformStamped(
+                header=Header(
+                    stamp=self.get_clock().now().to_msg(), frame_id="panda_link0"
+                ),
+                child_frame_id="box",
+                transform=Transform(
+                    translation=Vector3(x=0.40, y=0.0, z=0.0),
+                    rotation=Quaternion(
+                        # x=0.0, y=0.0, z=0.9999997, w=0.0007963
+                        # x = 1.000, y = -0.001, z = -0.006, w = -0.005
+                        x = 1.000, y = 0.0, z = 0.0, w = 0.0
+                        # x=0.706825, y=-0.0005629, z=0.707388, w=0.0005633
                     ),
                 ),
             )

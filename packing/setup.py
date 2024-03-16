@@ -12,6 +12,7 @@ setup(
         ('share/' + package_name, ['package.xml',
                                     'launch/realsense.launch.py',
                                     'launch/open_franka.launch.xml',
+                                    'launch/packing_object.launch.xml',
                                     'config/d435i_config.json',
                                     'config/packing.rviz']),
     ],
@@ -24,9 +25,11 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': ['detect_object = packing.detect_object:main',
-                            # 'camera_localizer = packing.camera_localizer:main',
-                            # 'pick_place = packing.pick_place:main',
-                            
+                            'pick_place = packing.pick_place:main',
+                            'run = packing.run:run_entry',
+                            'camera_localizer=packing.camera_localizer:main',
+                            'pack=packing.pack:main',
+                            'delay_node = packing.delay_node:delay_entry',
         ],
     },
 )
